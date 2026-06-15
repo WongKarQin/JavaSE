@@ -15,7 +15,7 @@ public class RangeLimitations{
         long big = Long.MAX_VALUE;//big+1 -> -9223372036854775808L
         //byte/short运算时自动提升为int
         byte b1 =10, b2=20;
-        //byte sum = b1+b2;//×编译错误 b1+b2结果为int
+        //byte sum = b1+b2;//❌编译错误 b1+b2结果为int
         byte sum = (byte) (b1+b2);//需要强转 但可能溢出
         //循环中的溢出bug
         for(int i = 0;i>=0;i++){

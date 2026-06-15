@@ -13,14 +13,14 @@ public class WrapperAndNull {
         int primitive = 100;//栈上分配，有默认值（0），不能为null
         Integer wrapper = 100;//堆上分配，可为null，有方法
         //空值问题：包装类可以解决
-        Integer nullable =null; //√包装类可以为null
-        // int notNull = null;×编译错误！基本类型不能为null
+        Integer nullable =null; //✅包装类可以为null
+        // int notNull = null;❌编译错误！基本类型不能为null
         //自动装箱 自动拆箱 auto-boxing auto-unboxing
         Integer boxed = 10;//自动装箱：Integer.valueOf(10)
         int unboxed = boxed;//自动拆箱：boxed.intValue()
         //空指针陷阱：拆箱时候NPE null pointer error
         Integer nullObj = null;
-        //int crash = nullObj;//×运行时报NullPointerException!
+        //int crash = nullObj;//❌运行时报NullPointerException!
         //安全拆箱
         int safe = (nullObj!=null)?nullObj:0;//安全拆箱
         //java8+更优雅写法：
@@ -32,10 +32,10 @@ public class WrapperAndNull {
         Integer c = 200;
         Integer d= 200;
         System.out.println(c==d);//false(超出缓存范围，不同对象地址不同)
-        System.out.println(c.equals(d));//true√ 数值相等
+        System.out.println(c.equals(d));//true ✅ 数值相等
         //集合必须使用包装类
-        //List<int>list;//× 语法错误
-        List<Integer> list = new ArrayList<>();//√
+        //List<int>list;//❌语法错误
+        List<Integer> list = new ArrayList<>();//✅
         list.add(100);
         int first = list.get(0);//自动拆箱
         //数据库/接口映射：用包装类表示可空字段
